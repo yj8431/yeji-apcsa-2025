@@ -14,7 +14,7 @@ public class Diamond implements Directions{
         // The line below creates a Robot that we will refer to as rob
         // Find out what the numbers and direction do!
         // Put rob in a better location for your initials.
-        Robot rob = new Robot(10,2,South,30);
+        Robot rob = new Robot(10,2,South,70);
         World.setDelay(5);
 
         // Want a second robot?  No prob.  They are cheap :)
@@ -22,7 +22,21 @@ public class Diamond implements Directions{
         // examples of commands you can invoke on a Robot
         // move one step in the direction it is facing
         //first side
+
         rob.putBeeper();
+        for (int num=0;num<5;num++){
+            rob.move();
+            rob.turnLeft();
+            rob.move();
+            rob.putBeeper();
+            rob.turnLeft();
+            rob.turnLeft();
+            rob.turnLeft();
+        }
+
+        
+
+        /* 
         rob.move();
         rob.turnLeft();
         rob.move();
@@ -30,7 +44,6 @@ public class Diamond implements Directions{
         rob.turnLeft();
         rob.turnLeft();
         rob.turnLeft();
-        rob.move();
 
         rob.turnLeft();
         rob.move();
@@ -59,6 +72,7 @@ public class Diamond implements Directions{
         rob.turnLeft();
         rob.move();
         rob.putBeeper();
+        
 
         //second side
         rob.move();
@@ -153,7 +167,7 @@ public class Diamond implements Directions{
         rob.putBeeper();
         
         rob.move();
-
+        */
 
 
 
