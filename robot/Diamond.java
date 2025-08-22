@@ -34,7 +34,40 @@ public class Diamond implements Directions{
             rob.turnLeft();
         }
 
-        
+        rob.turnLeft();
+        for (int num=0;num<5;num++){
+            rob.move();
+            rob.turnLeft();
+            rob.move();
+            rob.putBeeper();
+            rob.turnLeft();
+            rob.turnLeft();
+            rob.turnLeft();
+        }
+
+        rob.turnLeft();
+        for (int num=0;num<5;num++){
+            rob.move();
+            rob.turnLeft();
+            rob.move();
+            rob.putBeeper();
+            rob.turnLeft();
+            rob.turnLeft();
+            rob.turnLeft();
+        }
+
+        rob.turnLeft();
+        for (int num=0;num<5;num++){
+            rob.move();
+            rob.turnLeft();
+            rob.move();
+            rob.putBeeper();
+            rob.turnLeft();
+            rob.turnLeft();
+            rob.turnLeft();
+        }
+
+
 
         /* 
         rob.move();
