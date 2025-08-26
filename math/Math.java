@@ -50,14 +50,18 @@ class Math {
     //Create codes that will print the following:
 
     //Odd integers from 1 to 100, inclusive of both
-
+    for (int num=1;num<100;num+=2){
+      System.out.println(num);
+    }
 
 
     //All multiples of 3 from 1 to 100
-
-
+    for (int number=3;number<100;number+=3){
+      System.out.println(number);
+    }
 
 
     //Starting at 1000, print on the same line (with a - [hypthen] between each) all of the numbers that end in 0 going down to 0
+    
   }
 }
