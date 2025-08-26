@@ -14,7 +14,6 @@ class Math {
 
 
 
-
     //ANSWER:
 
 
@@ -46,6 +45,7 @@ class Math {
     //+ - * / %
 
     //Try doing some math operations with numbers. How can we check to see if the math worked?
+    System.out.println(5*2);
 
     //Create codes that will print the following:
 
