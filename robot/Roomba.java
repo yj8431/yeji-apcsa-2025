@@ -17,6 +17,7 @@ public class Roomba implements Directions {
 
 	// declared here so it is visible in all the methods!
 	private Robot roomba;
+	
 
 	// You will need to add many variables!!
 
