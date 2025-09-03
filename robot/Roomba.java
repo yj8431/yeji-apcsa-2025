@@ -16,7 +16,7 @@ public class Roomba implements Directions {
 	}
 
 	// declared here so it is visible in all the methods!
-	private Robot roomba = new Robot(7,6,East,10);
+	private Robot roomba = new Robot(7,6,East,0);
 
 	// You will need to add many variables!!
 
@@ -28,6 +28,7 @@ public class Roomba implements Directions {
 
 		World.readWorld(worldName);
 		World.setVisible(true);
+		World.setDelay(10);
 
 
 		/** This section will have all the logic that takes the Robot to every location
@@ -39,12 +40,19 @@ public class Roomba implements Directions {
 		// what is that and why are we getting it?
 		for (int i = 0; i < 7; i++) {
 			roomba.move();
+			while (roomba.nextToABeeper()){
+				roomba.pickBeeper();
+			}
+			
 		}
 		roomba.turnLeft();
 		roomba.move();
 		roomba.turnLeft();
 		for (int i = 0; i < 7; i++) {
 			roomba.move();
+			while (roomba.nextToABeeper()){
+				roomba.pickBeeper();
+			}
 		}
 		for (int i = 0; i < 3; i++) {
 			roomba.turnLeft();
@@ -55,12 +63,18 @@ public class Roomba implements Directions {
 		}
 		for (int i = 0; i < 7; i++) {
 			roomba.move();
+			while (roomba.nextToABeeper()){
+				roomba.pickBeeper();
+			}
 		}
 		roomba.turnLeft();
 		roomba.move();
 		roomba.turnLeft();
 		for (int i = 0; i < 7; i++) {
 			roomba.move();
+			while (roomba.nextToABeeper()){
+				roomba.pickBeeper();
+			}
 		}
 		for (int i = 0; i < 3; i++) {
 			roomba.turnLeft();
@@ -71,6 +85,9 @@ public class Roomba implements Directions {
 		}
 		for (int i = 0; i < 7; i++) {
 			roomba.move();
+			while (roomba.nextToABeeper()){
+				roomba.pickBeeper();
+			}
 		}
 
 
