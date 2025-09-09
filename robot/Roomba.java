@@ -31,6 +31,8 @@ public class Roomba implements Directions {
 		World.setDelay(10);
 		int totalBeepers = 0;
 		int totalSteps = 0;
+		int beepersInPile = 0;
+		int numOfPiles = 0;
 
 
 		/** This section will have all the logic that takes the Robot to every location
@@ -47,9 +49,12 @@ public class Roomba implements Directions {
 				while (roomba.nextToABeeper()){
 					roomba.pickBeeper();
 					totalBeepers++;
+					beepersInPile++;
 				}
+				numOfPiles++;
 				roomba.move();
 				totalSteps++;
+				
 			}
 			if (roomba.facingEast()){
 				roomba.turnLeft();
