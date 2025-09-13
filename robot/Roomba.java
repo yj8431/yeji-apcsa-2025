@@ -7,17 +7,17 @@ public class Roomba implements Directions {
 	// Main method to make this self-contained
 	public static void main(String[] args) {
 		// LEAVE THIS ALONE!!!!!!
-		String worldName = "robot/basicRoom.wld";
+		String worldName = "robot/finalTestWorld2024.wld";
 
 		Roomba cleaner = new Roomba();
-		int totalBeepers = cleaner.cleanRoom(worldName, 7, 6);
+		int totalBeepers = cleaner.cleanRoom(worldName, 26, 101);
 		System.out.println("Roomba cleaned up a total of " + totalBeepers + " beepers.");
 		
 
 	}
 
 	// declared here so it is visible in all the methods!
-	private Robot roomba = new Robot(7,6,East,0);
+	private Robot roomba = new Robot(26,101,East,0);
 
 	// You will need to add many variables!!
 
@@ -29,7 +29,7 @@ public class Roomba implements Directions {
 
 		World.readWorld(worldName);
 		World.setVisible(true);
-		World.setDelay(10);
+		World.setDelay(1);
 		int totalBeepers = 0;
 		int numPiles = 0;
 		int largestPile = 0;
@@ -59,6 +59,7 @@ public class Roomba implements Directions {
 						roomba.pickBeeper();
 						currentPile++;
 					}
+					//update biggest pile size
 					if (currentPile > largestPile){
 						largestPile = currentPile;
 						largestPileLocationX = roomba.avenue();
@@ -70,6 +71,7 @@ public class Roomba implements Directions {
 				totalSquaredMoved++;
 				
 			}
+			//left U-turn
 			if (roomba.facingEast()) {
 				roomba.turnLeft();
 				if (!roomba.frontIsClear()){
@@ -88,15 +90,28 @@ public class Roomba implements Directions {
 					roomba.turnLeft();
 				}
 			}
+			//right U-turn
 			else {
 				roomba.turnLeft();
 				roomba.turnLeft();
 				roomba.turnLeft();
-				roomba.move();
-				totalSquaredMoved++;
-				roomba.turnLeft();
-				roomba.turnLeft();
-				roomba.turnLeft();
+				if (!roomba.frontIsClear()){
+					if (roomba.nextToABeeper()){
+					numPiles++;
+					}
+					while (roomba.nextToABeeper()) {
+						totalBeepers++;
+						roomba.pickBeeper();
+					}
+					moreToClean = false;
+				}
+				else{
+					roomba.move();
+					totalSquaredMoved++;
+					roomba.turnLeft();
+					roomba.turnLeft();
+					roomba.turnLeft();
+				}
 			}
 		}
 		
@@ -104,7 +119,7 @@ public class Roomba implements Directions {
         // This method should return the total number of beepers cleaned up.
 		System.out.println("The total number of piles is " + numPiles);
 		System.out.println("The largest pile of beepers has " + largestPile + " beepers.");
-		System.out.println("The largest pile (from top left corner) is right " + (largestPileLocationX - 6) + " and down " + (-1)*(largestPileLocationY - 11));	
+		System.out.println("The largest pile (from bottom left corner) is right " + (largestPileLocationX - 101) + " and up " + (largestPileLocationY - 26));	
 		System.out.println("The area is " + totalSquaredMoved + " square units.");
 		System.out.println("The average pile size is " + ((double)(totalBeepers)/numPiles));
 		System.out.println("The percent dirty is " + (double)(numPiles)/totalSquaredMoved);
