@@ -28,13 +28,32 @@ public class PigLatinTranslator {
 
     private static String translateWord(String input) {
         System.out.println("  -> translateWord('" + input + "')");
+        String result = input;
+        if (input.length()!=0)
+        {
+            String firstLetter = input.substring(0,1);
+            if (firstLetter.equals("a")||firstLetter.equals("e")||firstLetter.equals("i")||firstLetter.equals("o")||firstLetter.equals("u")||firstLetter.equals("y"))
+            {
+                result = result + "ay";
+            }
+            else
+            {
+                for (int i=0; i<input.length(); i++)
+                {
+                    if (input.substring(i,i+1).equals("a")||input.substring(i,i+1).equals("e")||input.substring(i,i+1).equals("i")||input.substring(i,i+1).equals("o")||input.substring(i,i+1).equals("u")||input.substring(i,i+1).equals("y"))
+                    {
+                        return input.substring(i)+input.substring(0,i)+"ay";
+                    }
+                }
+            }
+        }
+        
+        
 
-        String result = "";
 
         // TODO: Replace this code to correctly translate a single word.
         // Start here first!
         // This is the first place to work.
-        result = input; // delete this line
 
         return result;
     }
