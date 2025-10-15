@@ -47,7 +47,10 @@ public class PigLatinTranslator {
                 }
             }
         }
-        
+        if (input.indexOf(" ")==0)
+        {
+            return "";
+        }
         
 
 
