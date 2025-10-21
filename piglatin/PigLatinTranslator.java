@@ -31,21 +31,42 @@ public class PigLatinTranslator {
         String result = input;
         if (input.length()!=0)
         {
+            //first letter is vowel
+            String vowels = "aeiou";
             String firstLetter = input.substring(0,1);
-            if (firstLetter.equals("a")||firstLetter.equals("e")||firstLetter.equals("i")||firstLetter.equals("o")||firstLetter.equals("u")||firstLetter.equals("y"))
+            for (int i=0; i<input.length();i++)
             {
-                result = result + "ay";
-            }
-            else
-            {
-                for (int i=0; i<input.length(); i++)
+                String currentLetter = input.substring(i,i+1);
+                int vowelIndex = vowels.indexOf(currentLetter);
+                if (vowelIndex!=1)
                 {
-                    if (input.substring(i,i+1).equals("a")||input.substring(i,i+1).equals("e")||input.substring(i,i+1).equals("i")||input.substring(i,i+1).equals("o")||input.substring(i,i+1).equals("u")||input.substring(i,i+1).equals("y"))
-                    {
-                        return input.substring(i)+input.substring(0,i)+"ay";
-                    }
+                    return input.substring(vowelIndex)+input.substring(0,vowelIndex)+"ay";
                 }
             }
+            
+            // if (firstLetter.equals("a")||firstLetter.equals("e")||firstLetter.equals("i")||firstLetter.equals("o")||firstLetter.equals("u")||firstLetter.equals("y"))
+            // {
+            //     result = result + "ay";
+            // }
+            // else
+            // {
+            //     //first letter is not vowel
+            //     for (int i=0; i<input.length(); i++)
+            //     {
+            //         if (input.substring(i,i+1).equals("a")||input.substring(i,i+1).equals("e")||input.substring(i,i+1).equals("i")||input.substring(i,i+1).equals("o")||input.substring(i,i+1).equals("u")||input.substring(i,i+1).equals("y"))
+            //         {
+            //             result = input.substring(i)+input.substring(0,i)+"ay";
+
+            //         }
+            //     }
+            //     //first letter is capitalized
+            //     /*
+            //     if (firstLetter.toUpperCase().equals(firstLetter))
+            //     {
+                    
+            //     }
+            //     */
+            // }
         }
         if (input.indexOf(" ")==0)
         {
