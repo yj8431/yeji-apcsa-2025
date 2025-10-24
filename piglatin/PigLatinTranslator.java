@@ -34,13 +34,30 @@ public class PigLatinTranslator {
             String firstLetter = input.substring(0,1);
             for (int i=0; i<input.length();i++)
             {
-                String currentLetter = input.substring(i,i+1);
+                String currentLetter = input.substring(i,i+1).toLowerCase();
                 if (isVowel(currentLetter))
                 {
                     //System.out.println("Vowel: "+currentLetter+" at index: "+i);
-                    result = input.substring(i)+input.substring(0,i)+"ay";
+                    if (firstLetter.toUpperCase().equals(firstLetter))
+                    {
+                        //System.out.println("first letter is uppercase");
+                        result = input.substring(i,i+1).toUpperCase()+input.substring(i+1)+input.substring(0,i).toLowerCase()+"ay";
+                    }
+                    else
+                    {
+                        result = input.substring(i)+input.substring(0,i).toLowerCase()+"ay";
+                    }
+                    
+                    break;
                 }
             }
+            /*
+            if (firstLetter.toUpperCase().equals(firstLetter))
+            {
+                System.out.println("First letter is uppercase");
+                result.toUpperCase();
+            }
+            */
             
             // if (firstLetter.equals("a")||firstLetter.equals("e")||firstLetter.equals("i")||firstLetter.equals("o")||firstLetter.equals("u")||firstLetter.equals("y"))
             // {
@@ -71,12 +88,6 @@ public class PigLatinTranslator {
             result = "";
         }
         
-
-
-        // TODO: Replace this code to correctly translate a single word.
-        // Start here first!
-        // This is the first place to work.
-
         return result;
     }
 
