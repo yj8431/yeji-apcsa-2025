@@ -32,7 +32,15 @@ public class PigLatinTranslator {
         if (input.length()!=0)
         {
             String firstLetter = input.substring(0,1);
-            for (int i=0; i<input.length();i++)
+            String tail = "";
+            int length = input.length();
+            if (input.substring(input.length()-1).equals("."))
+            {
+                //System.out.println("period at end");
+                tail = ".";
+                input = input.substring(0,length-1);
+            }
+            for (int i=0; i<length;i++)
             {
                 String currentLetter = input.substring(i,i+1).toLowerCase();
                 if (isVowel(currentLetter))
@@ -41,11 +49,11 @@ public class PigLatinTranslator {
                     if (firstLetter.toUpperCase().equals(firstLetter))
                     {
                         //System.out.println("first letter is uppercase");
-                        result = input.substring(i,i+1).toUpperCase()+input.substring(i+1)+input.substring(0,i).toLowerCase()+"ay";
+                        result = input.substring(i,i+1).toUpperCase()+input.substring(i+1)+input.substring(0,i).toLowerCase()+"ay"+tail;
                     }
                     else
                     {
-                        result = input.substring(i)+input.substring(0,i).toLowerCase()+"ay";
+                        result = input.substring(i)+input.substring(0,i).toLowerCase()+"ay"+tail;
                     }
                     
                     break;
