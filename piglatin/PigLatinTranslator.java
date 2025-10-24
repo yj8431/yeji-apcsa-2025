@@ -31,15 +31,14 @@ public class PigLatinTranslator {
         String result = input;
         if (input.length()!=0)
         {
-            //first letter is vowel
-            //String firstLetter = input.substring(0,1);
+            String firstLetter = input.substring(0,1);
             for (int i=0; i<input.length();i++)
             {
                 String currentLetter = input.substring(i,i+1);
                 if (isVowel(currentLetter))
                 {
                     //System.out.println("Vowel: "+currentLetter+" at index: "+i);
-                    return input.substring(i)+input.substring(0,i)+"ay";
+                    result = input.substring(i)+input.substring(0,i)+"ay";
                 }
             }
             
@@ -69,7 +68,7 @@ public class PigLatinTranslator {
         }
         if (input.indexOf(" ")==0)
         {
-            return "";
+            result = "";
         }
         
 
@@ -85,11 +84,11 @@ public class PigLatinTranslator {
     {
         if (letter.length() == 1)
         {
-        String vowels = "aeiou";
-        if (vowels.indexOf(letter) != -1)
-        {
-            return true;
-        }
+            String vowels = "aeiou";
+            if (vowels.indexOf(letter) != -1)
+            {
+                return true;
+            }
         }
         return false;
     }
