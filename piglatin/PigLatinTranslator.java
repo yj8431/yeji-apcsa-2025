@@ -4,16 +4,17 @@ import java.util.Scanner;
 public class PigLatinTranslator {
     public static Book translate(Book input) {
         Book translatedBook = new Book();
-        int numLines = input.getLineCount();
-        for (int i=0;i<numLines;i++)
-        {
-            String line = input.getLine(i);
-            translatedBook.appendLine(translate(line));
-        }
+        
         // TODO: Add code here to populate translatedBook with a translation of the
         // input book.
         // Curent do-nothing code will return an empty book.
         // Your code will need to call translate(String input) many times.
+        
+        for (int i=0;i<input.getLineCount();i++)
+        {
+            String translatedLine = translate(input.getLine(i));
+            translatedBook.appendLine(translatedLine);
+        }
 
         return translatedBook;
     }
@@ -32,6 +33,8 @@ public class PigLatinTranslator {
         while (sc.hasNext())
         {
             String word = sc.next();
+            //if (result.length()==0)
+            //{}
             result += translateWord(word);
             if (sc.hasNext())
             {
@@ -113,7 +116,6 @@ public class PigLatinTranslator {
         {
             result = "";
         }
-        
         
         return result;
     }

@@ -86,8 +86,12 @@ public class Book {
         // TODO: Add code here to write the contents of the book to a file.
         // Must write to file using provided name.
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(title+".txt", true))){
-            writer.write(text.get(i));
-            writer.newLine();
+            for (int i=0;i<text.size();i++)
+            {
+                writer.write(text.get(i));
+                writer.newLine();
+            }
+            
         }
         catch(IOException ex){
             ex.printStackTrace();
