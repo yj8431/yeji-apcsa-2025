@@ -4,50 +4,70 @@ import java.util.Random;
 public class Deck {
 
     private int top;
-    Card[] deck = new Card[52];
+    private Card[] deck;
+    //Card[] deck = new Card[52];
 
     public Deck()
     {
-        //Card[] deck = new Card[52];
+        deck = new Card[52];
         int top = 0;
-        for (int i=0; i<13; i++)
+        
+        int index = 0;
+        for (int suit = 0; suit<4; suit++)
         {
-            deck[i] = new Card(0,i);
+            for (int value = 0; value<13; value++)
+            {
+                deck[index] = new Card(suit, value);
+                index++;
+            }
         }
-        for (int i=13; i<26; i++)
-        {
-            deck[i] = new Card(1,i);
-        }
-        for (int i=26; i<39; i++)
-        {
-            deck[i] = new Card(2,i);
-        }
-        for (int i=39; i<52; i++)
-        {
-            deck[i] = new Card(3,i);
-        }
+        
     }
 
     public void shuffle()
     {
         //randomizes order of deck
-        for (int i=deck.length; i>0; i--)
+        for (int i=deck.length-1; i>0; i--)
         {
-            int randnum = (int) (Math.random()*(i+1));
-            deck[]
+            int j = (int) (Math.random()*(i+1));
+            Card temp = deck[j];
+            deck[i] = deck[j];
+            deck[j] = temp;
         }
 
     }
 
     public void cut(int position)
     {
-
+        Card[] newDeck = new Card[52];
+        int idx = 0;
+        for (int i=position; i<52; i++)
+        {
+            newDeck[idx] = deck[i];
+            idx++;
+        }
+        for(int i=0; i<position; i++)
+        {
+            newDeck[idx] = deck[i];
+            idx++;
+        }
+        deck = newDeck;
     }
 
-    public String draw()
+    public Card draw()
     {
-
+        if (top>=52)
+        {
+            return null;
+        }
+        return deck[top++];
     }
 
-    public void print(int )
+    public void print(int cardposition)
+    {
+        for (int i=0; i<cardposition; i++)
+        {
+            System.out.print(deck[i] + " ");
+        }
+    }
 }
