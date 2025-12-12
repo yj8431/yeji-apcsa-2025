@@ -126,3 +126,4 @@ public class GameOfLife implements Board {
         System.out.println();
     }
 }
+//passed test suite
