@@ -1,7 +1,7 @@
 package warmup;
 
 public class Main {
-    //problem 1
+    //problem 1: find the sum of all the multiplies of 3 or 5 below 1000
 
     public static void main(String[] args) {
         // Your code here.
@@ -13,6 +13,7 @@ public class Main {
                 sum+=i;
             }
         }
+        System.out.println(sum);
 
     }
 }
