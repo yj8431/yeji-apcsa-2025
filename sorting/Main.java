@@ -14,11 +14,16 @@ public class Main {
         //     of InsertionSort and Selection sort continue to work.
         //  4. Increase the loop count for TestSuite to get better performance results.
 
-        int[] testInput = randomArray(5);
+        for (int size=100; size<=800; size*=2)
+        {
+            System.out.println("Size " + size);
+            int[] testInput = randomArray(size);
+            TestSuite.run(testInput, 1);
+        }
 
         // Increase the loop count to get better results once it works.
         // TestSuite.run(testInput, 10000);
-        TestSuite.run(testInput, 1);
+        
     }
 
     public static int[] randomArray(int length)
