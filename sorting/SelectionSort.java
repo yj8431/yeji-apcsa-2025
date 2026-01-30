@@ -10,15 +10,10 @@ public class SelectionSort implements Sorter {
         {
             for (int a=i; a<input.length; a++)
             {
-                if (input[a]<input[a+1])
+                if (input[a]<smallest)
                 {
                     smallest = input[a];
                     smallestPosition = a;
-                }
-                else
-                {
-                    smallest = input[a+1];
-                    smallestPosition = a+1;
                 }
             }
             int temp = input[i];
@@ -27,7 +22,7 @@ public class SelectionSort implements Sorter {
             
 
         }
-        System.out.println(input);
+        //System.out.println(input);
     }
     
 }
