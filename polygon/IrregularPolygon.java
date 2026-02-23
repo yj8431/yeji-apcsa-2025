@@ -40,4 +40,4 @@ public class IrregularPolygon {
         }
     }
 
-}
+} //set up project
