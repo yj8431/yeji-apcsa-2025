@@ -32,12 +32,12 @@ public class IrregularPolygon {
         // Wrap the DrawingTool in a try/catch to allow development without need for graphics.
         try {
             // TODO: Draw the polygon.
-            // Documents: https://pavao.org/compsci/gpdraw/html/gpdraw/DrawingTool.html
-            //DrawingTool myDrawingTool = new DrawingTool(new SketchPad(500, 500));
-            //myDrawingTool.move(50, 50);
+            //Documents: https://pavao.org/compsci/gpdraw/html/gpdraw/DrawingTool.html
+            DrawingTool myDrawingTool = new DrawingTool(new SketchPad(500, 500));
+            myDrawingTool.move(50, 50);
         } catch (java.awt.HeadlessException e) {
             System.out.println("Exception: No graphics support available.");
         }
     }
 
-} //set up project
+} 
