@@ -8,22 +8,40 @@ public class IrregularPolygon {
     private ArrayList<Point2D.Double> myPolygon = new ArrayList<Point2D.Double>();
 
     // constructor
-    public IrregularPolygon() {}
+    public IrregularPolygon(){ }
 
     // public methods
     public void add(Point2D.Double aPoint)
     {
         // TODO: Add a point to the IrregularPolygon.
+        myPolygon.add(aPoint);
     }
 
     public double perimeter() {
         // TODO: Calculate the perimeter.
-        return 3.14;
+        double perimeter=0.0;
+        for (int i=0; i<myPolygon.size(); i++)
+        {
+            if (i==myPolygon.size()-1)
+            {
+                perimeter += myPolygon.get(i).distance(myPolygon.get(0));
+            }
+            else
+            {
+                perimeter += myPolygon.get(i).distance(myPolygon.get(i+1));
+            }
+        }
+        return perimeter;
     }
 
     public double area() {
         // TODO: Calculate the area.
         Double area = 0.0;
+        for (int i=0; i<myPolygon.size();i++)
+        {
+            area += myPolygon.get(i).getX()*myPolygon.get(i+1).getY();
+        }
+        area/=2;
         return area;
     }
 
@@ -34,7 +52,12 @@ public class IrregularPolygon {
             // TODO: Draw the polygon.
             //Documents: https://pavao.org/compsci/gpdraw/html/gpdraw/DrawingTool.html
             DrawingTool myDrawingTool = new DrawingTool(new SketchPad(500, 500));
-            myDrawingTool.move(50, 50);
+            myDrawingTool.down();
+            for (int i=0; i<myPolygon.size(); i++)
+            {
+                myDrawingTool.move(myPolygon.get(i).getX(),myPolygon.get(i).getY());
+            }
+            //myDrawingTool.move(50, 50);
         } catch (java.awt.HeadlessException e) {
             System.out.println("Exception: No graphics support available.");
         }
