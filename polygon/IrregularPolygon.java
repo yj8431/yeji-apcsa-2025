@@ -39,10 +39,19 @@ public class IrregularPolygon {
         Double area = 0.0;
         for (int i=0; i<myPolygon.size();i++)
         {
-            area += myPolygon.get(i).getX()*myPolygon.get(i+1).getY();
+            if (i==myPolygon.size()-1)
+            {
+                area += myPolygon.get(i).getX()*myPolygon.get(0).getY();
+                area -= myPolygon.get(0).getX()*myPolygon.get(i).getY();
+            }
+            else
+            {
+                area += myPolygon.get(i).getX()*myPolygon.get(i+1).getY();
+                area -= myPolygon.get(i).getY()*myPolygon.get(i+1).getX();
+            }
         }
         area/=2;
-        return area;
+        return Math.abs(area);
     }
 
     public void draw()
