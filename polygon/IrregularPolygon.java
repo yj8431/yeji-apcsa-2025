@@ -61,12 +61,17 @@ public class IrregularPolygon {
             // TODO: Draw the polygon.
             //Documents: https://pavao.org/compsci/gpdraw/html/gpdraw/DrawingTool.html
             DrawingTool myDrawingTool = new DrawingTool(new SketchPad(500, 500));
-            myDrawingTool.down();
+            
+            
             for (int i=0; i<myPolygon.size(); i++)
             {
-                myDrawingTool.move(myPolygon.get(i).getX(),myPolygon.get(i).getY());
+                myDrawingTool.move(myPolygon.get(i).getX(), myPolygon.get(i).getY());
             }
+            
+            //myDrawingTool.move(myPolygon.get(0).getX(),myPolygon.get(0).getY());
+            
             //myDrawingTool.move(50, 50);
+            //myDrawingTool.move(-100,100);
         } catch (java.awt.HeadlessException e) {
             System.out.println("Exception: No graphics support available.");
         }
