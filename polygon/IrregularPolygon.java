@@ -66,6 +66,11 @@ public class IrregularPolygon {
             for (int i=0; i<myPolygon.size(); i++)
             {
                 myDrawingTool.move(myPolygon.get(i).getX(), myPolygon.get(i).getY());
+                if (i==myPolygon.size()-1)
+                {
+                    myDrawingTool.move(myPolygon.get(0).getX(), myPolygon.get(0).getY());
+                }
+                
             }
             
             //myDrawingTool.move(myPolygon.get(0).getX(),myPolygon.get(0).getY());
