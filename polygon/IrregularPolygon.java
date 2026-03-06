@@ -61,17 +61,17 @@ public class IrregularPolygon {
             // TODO: Draw the polygon.
             //Documents: https://pavao.org/compsci/gpdraw/html/gpdraw/DrawingTool.html
             DrawingTool myDrawingTool = new DrawingTool(new SketchPad(500, 500));
+            myDrawingTool.up();
             for (int i=0; i<myPolygon.size(); i++)
             {
-                
                 myDrawingTool.move(myPolygon.get(i).getX(), myPolygon.get(i).getY());
+                myDrawingTool.down();
                 
                 if (i==myPolygon.size()-1)
                 {
                     myDrawingTool.move(myPolygon.get(0).getX(), myPolygon.get(0).getY());
                     
                 }
-                
             }
             
             //myDrawingTool.move(myPolygon.get(0).getX(),myPolygon.get(0).getY());
