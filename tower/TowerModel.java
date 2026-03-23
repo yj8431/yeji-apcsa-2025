@@ -76,7 +76,7 @@ public class TowerModel {
         }
         System.out.println();
     }
-
+ 
     // Test instrumentation
     public IntegerStack[] getTowers()
     {
