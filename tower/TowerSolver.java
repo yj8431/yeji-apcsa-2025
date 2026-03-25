@@ -18,6 +18,9 @@ public class TowerSolver {
     // This new method will be recursive (call itself)
     //
     // [ solve method here]
-    //
+    public void solve()
+    {
+        
+    }
 
 }
